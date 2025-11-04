@@ -1,7 +1,7 @@
 using Unity.VisualScripting;
 using UnityEngine;
 
-public class förflyttning : MonoBehaviour
+public class moving : MonoBehaviour
 {
     public Vector3 targetPos;
     public string condtion = "healthy";

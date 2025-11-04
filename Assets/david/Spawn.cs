@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class NewMonoBehaviourScript : MonoBehaviour
+public class spawn : MonoBehaviour
 {
     public GameObject SpawnHumans;
 
@@ -10,7 +10,7 @@ public class NewMonoBehaviourScript : MonoBehaviour
     {
         for (var i = 0; i < 10; i++)
         {
-            Instantiate(SpawnHumans, new Vector3(i * 2.0f, 0, 0), Quaternion.identity);
+            Instantiate(SpawnHumans, new Vector3(i * 3.0f, 0, 0), Quaternion.identity);
         }
     }
 
