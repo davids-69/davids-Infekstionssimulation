@@ -7,6 +7,8 @@ public class infection : MonoBehaviour
 {
     public SpriteRenderer sr;
     public int unitcondtion;
+    private float timer = 0.0f;
+    private bool restart = false;
     void Start()
     {
         sr = GetComponent<SpriteRenderer>();
@@ -41,30 +43,7 @@ public class infection : MonoBehaviour
         }*/
     }
 
-void Awake()
-    {
-        SpriteRenderer sr;
-        sr = gameObject.AddComponent<SpriteRenderer>() as SpriteRenderer;
-        sr.color = new Color(0.9f, 0.9f, 0.1f, 1.0f);
-
-        BoxCollider2D bc;
-        bc = gameObject.AddComponent<BoxCollider2D>() as BoxCollider2D;
-        bc.size = new Vector2(1.0f, 1.0f);
-
-        Rigidbody2D rb;
-        rb = gameObject.AddComponent<Rigidbody2D>() as Rigidbody2D;
-        rb.gravityScale = 1.0f;
-
-        // A square in the Resources folder is used.
-        gameObject.GetComponent<SpriteRenderer>().sprite = Resources.Load<Sprite>("square");
-
-        // GameObject1 starts 3 units in the Up direction.
-        gameObject.transform.position = new Vector3(0.0f, 3.0f, 0.0f);
-        gameObject.transform.localScale = new Vector3(0.5f, 0.5f, 1.0f);
-    }
-
-    private float timer = 0.0f;
-    private bool restart = false;
+   
 
     void FixedUpdate()
     {
