@@ -9,15 +9,15 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8180753436931219775}
+  - component: {fileID: 3017576656729421382}
   - component: {fileID: 8972417373795293821}
   - component: {fileID: 1568533449902679356}
   - component: {fileID: 769950023799465890}
-  - component: {fileID: 3017576656729421382}
   - component: {fileID: -2683888972924279565}
   - component: {fileID: 5087918935289061554}
   m_Layer: 0
   m_Name: human
-  m_TagString: infected human
+  m_TagString: human
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -37,6 +37,25 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &3017576656729421382
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4121315548005982759}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4313c089a3215447b4e6bc411e12c17, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 0.5
+  sr: {fileID: 8972417373795293821}
+  unitcondtion: 0
+  timer: 0.3
+  stats: {fileID: 0}
+  infectionDurantion: 5
+  infectionChance: 100
 --- !u!212 &8972417373795293821
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -133,21 +152,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   targetPos: {x: 0, y: 0, z: 0}
   condtion: infected
---- !u!114 &3017576656729421382
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4121315548005982759}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f4313c089a3215447b4e6bc411e12c17, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  sr: {fileID: 8972417373795293821}
-  unitcondtion: 0
-  timer: 0.3
 --- !u!61 &-2683888972924279565
 BoxCollider2D:
   m_ObjectHideFlags: 0
