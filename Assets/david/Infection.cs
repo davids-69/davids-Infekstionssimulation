@@ -7,7 +7,7 @@ using UnityEngine;
 public class infection : MonoBehaviour
 
 {
-    public float speed = 3f;
+    public float speed = 0.1f;
     public SpriteRenderer sr;
     public int unitcondtion = 0;
     public float timer = 0.10f;
@@ -156,9 +156,9 @@ public class infection : MonoBehaviour
             unitcondtion = 3;
             gameObject.tag = "dead";
             isAlive = false;
-            // Destroy(gameObject);
             stats.GetComponent<statisticsManager>().deadCount++;
             stats.GetComponent<statisticsManager>().infectedCount--;
+            //Destroy(gameObject);
         }
 
         yield return null;

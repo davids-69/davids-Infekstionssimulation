@@ -737,6 +737,10 @@ PrefabInstance:
       propertyPath: stats
       value: 
       objectReference: {fileID: 24364614}
+    - target: {fileID: 89087886852501349, guid: 49d4b3d32511b8848a9a169720f5c0bd, type: 3}
+      propertyPath: intialpopulation
+      value: 100
+      objectReference: {fileID: 0}
     - target: {fileID: 2679279989647511390, guid: 49d4b3d32511b8848a9a169720f5c0bd, type: 3}
       propertyPath: m_Name
       value: spawn
@@ -804,7 +808,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3017576656729421382, guid: d516a3ed9f396f3479ce56e45188b98a, type: 3}
       propertyPath: speed
-      value: 3
+      value: 0.1
       objectReference: {fileID: 0}
     - target: {fileID: 3017576656729421382, guid: d516a3ed9f396f3479ce56e45188b98a, type: 3}
       propertyPath: stats
