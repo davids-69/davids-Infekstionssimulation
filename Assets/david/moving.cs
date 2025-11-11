@@ -2,7 +2,7 @@ using Unity.VisualScripting;
 using UnityEngine;
 
 public class moving : MonoBehaviour
-{
+{/*
     public Vector3 targetPos;
     public string condtion = "healthy";
 
@@ -22,6 +22,6 @@ public class moving : MonoBehaviour
         {
             targetPos = new Vector3(Random.Range(-3,3), Random.Range(-4,4), 0);
         }
-    }
+    }*/
 }
 

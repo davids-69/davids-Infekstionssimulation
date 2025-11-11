@@ -7,7 +7,7 @@ using UnityEngine;
 public class infection : MonoBehaviour
 
 {
-    public float speed = 0.5f;
+    public float speed = 3f;
     public SpriteRenderer sr;
     public int unitcondtion = 0;
     public float timer = 0.10f;
@@ -17,10 +17,12 @@ public class infection : MonoBehaviour
     public GameObject stats;
     private bool isAlive = true;
     public float infectionDurantion = 5.0f;
-    public int infectionChance = 100;
-    private float changeDirectionInterval = 2.0f;
+    public int infectionChance = 50;
+    private float changeDirectionInterval = 0f;
     private float DirectionX;
     private float DirectionY;
+    public Vector3 targetPos;
+   
 
     private void Awake()
     {
@@ -49,7 +51,7 @@ public class infection : MonoBehaviour
         if (unitcondtion == 3)
         {
             sr.color = Color.red; // död
-                                  // Destroy(this);
+        // Destroy(this);
 
         }
         changeDirectionInterval -=Time.deltaTime;
@@ -61,27 +63,33 @@ public class infection : MonoBehaviour
 
 
         }
-        
+        Debug.Log(isAlive);
         //rörelse
         if (isAlive)
-        { 
-            if (transform.position.x >= 8.5f && DirectionX > 0) 
+        {
+            transform.position = Vector3.MoveTowards(transform.position, targetPos, 3f * Time.deltaTime);
+
+            if (transform.position == targetPos)
+            {
+                targetPos = new Vector3(Random.Range(-3, 3), Random.Range(-4, 4), 0);
+            }
+            /*if (transform.position.x <= 8.5f && DirectionX > 0) 
             {
                 DirectionX += -1;                
             }
-            if (transform.position.x >= 8.5f && DirectionX < 0)
+            if (transform.position.x >= -8.5f && DirectionX < 0)
             {
                 DirectionX += -1;
             }
-            if (transform.position.y >= 4.5f && DirectionX > 0)
+            if (transform.position.y <= 4.5f && DirectionX > 0)
             {
                 DirectionX += -1;
             }
-            if (transform.position.y >= 4.5f && DirectionX < 0)
+            if (transform.position.y >= -4.5f && DirectionX < 0)
             {
                 DirectionX += -1;
             }
-            transform.Translate(new Vector3(DirectionX, DirectionY, 0).normalized * speed * Time.deltaTime);
+            transform.Translate(new Vector3(DirectionX, DirectionY, 0).normalized * speed * Time.deltaTime); */
         }
     }
 
@@ -104,7 +112,7 @@ public class infection : MonoBehaviour
     // called when this GameObject collides with GameObject2.
     void OnTriggerEnter2D(Collider2D col)
     {
-        if (col.tag == "infected human" && gameObject.tag != "infected human")
+        if (col.tag == "infected human" && gameObject.tag == "human")
         {
             int diceroll = Random.Range(0, 101);
             {
@@ -125,8 +133,6 @@ public class infection : MonoBehaviour
 
     IEnumerator Infected()
     {
-       // int i
-       // if
         timer = Random.Range(0, 11);
         stats.GetComponent<statisticsManager>().infectedCount++;
         stats.GetComponent<statisticsManager>().healthyCount--;

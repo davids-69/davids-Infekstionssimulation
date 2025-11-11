@@ -7,7 +7,7 @@ TagManager:
   - human
   - infected human
   - Immune
-  - Dead
+  - dead
   layers:
   - Default
   - TransparentFX
