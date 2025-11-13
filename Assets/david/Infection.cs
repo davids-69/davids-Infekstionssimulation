@@ -7,6 +7,7 @@ using UnityEngine;
 public class infection : MonoBehaviour
 
 {
+    public GameObject SpawnHumans;
     public float speed = 0.1f;
     public SpriteRenderer sr;
     public int unitcondtion = 0;
@@ -26,6 +27,7 @@ public class infection : MonoBehaviour
 
     private void Awake()
     {
+        targetPos = new Vector3(Random.Range(-8, 8), Random.Range(-5, 5), 0);
         stats = GameObject.Find("statistics");
     }
     void Start()
@@ -51,7 +53,7 @@ public class infection : MonoBehaviour
         if (unitcondtion == 3)
         {
             sr.color = Color.red; // död
-        // Destroy(this);
+        
 
         }
         changeDirectionInterval -=Time.deltaTime;
@@ -67,11 +69,11 @@ public class infection : MonoBehaviour
         //rörelse
         if (isAlive)
         {
-            transform.position = Vector3.MoveTowards(transform.position, targetPos, 3f * Time.deltaTime);
+            transform.position = Vector3.MoveTowards(transform.position, targetPos, 2f * Time.deltaTime);
 
             if (transform.position == targetPos)
             {
-                targetPos = new Vector3(Random.Range(-3, 3), Random.Range(-4, 4), 0);
+                targetPos = new Vector3(Random.Range(-8, 8), Random.Range(-4, 5), 0);
             }
             /*if (transform.position.x <= 8.5f && DirectionX > 0) 
             {
@@ -118,7 +120,7 @@ public class infection : MonoBehaviour
             {
                 if (diceroll < 50)
 
-                {
+                {     // grön = infektion
                     unitcondtion = 1;
                     gameObject.tag = "infected human";
                     infect();
@@ -133,6 +135,7 @@ public class infection : MonoBehaviour
 
     IEnumerator Infected()
     {
+        // vit = ikke infekterad 
         timer = Random.Range(0, 11);
         stats.GetComponent<statisticsManager>().infectedCount++;
         stats.GetComponent<statisticsManager>().healthyCount--;
@@ -140,7 +143,7 @@ public class infection : MonoBehaviour
         int diceroll = Random.Range(0, 101);
 
         //IF någonting med diceroll
-        if (diceroll < 3)
+        if (diceroll < 10)
         {
             // blå = immun
             unitcondtion = 2;
@@ -158,10 +161,24 @@ public class infection : MonoBehaviour
             isAlive = false;
             stats.GetComponent<statisticsManager>().deadCount++;
             stats.GetComponent<statisticsManager>().infectedCount--;
+            yield return new WaitForSeconds(2f);
+            Death();
+            /*float startposx = Random.Range(-8.0f, 8.0f);
+            float startposy = Random.Range(-8.0f, 8.0f);
+            Instantiate(SpawnHumans, new Vector3(startposx, startposy, 0), Quaternion.identity);
+            stats.GetComponent<statisticsManager>().healthyCount++;*/
             //Destroy(gameObject);
         }
 
         yield return null;
+    }
+    void Death()
+    { 
+        float startposx = Random.Range(-8.0f, 8.0f);
+        float startposy = Random.Range(-8.0f, 8.0f);
+        Instantiate(SpawnHumans, new Vector3(startposx, startposy, 0), Quaternion.identity);
+        stats.GetComponent<statisticsManager>().healthyCount++;
+        Destroy(gameObject); 
     }
     void infect()
     { 
@@ -175,9 +192,11 @@ public class infection : MonoBehaviour
         {
             stats.GetComponent<statisticsManager>().infectedCount--;
             stats.GetComponent<statisticsManager>().immuneCount++;
+
         }
     }
 }
+
 
 
 

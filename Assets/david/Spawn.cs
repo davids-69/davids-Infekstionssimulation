@@ -1,10 +1,10 @@
 using UnityEngine;
 
-public class spawn : MonoBehaviour
+public class Spawn : MonoBehaviour
 {
     public GameObject SpawnHumans;
     public GameObject stats;
-    public int intialpopulation = 100;
+    public int intialpopulation = 200;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()

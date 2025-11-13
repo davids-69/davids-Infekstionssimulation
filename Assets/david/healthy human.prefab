@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: -2683888972924279565}
   - component: {fileID: 5087918935289061554}
   m_Layer: 0
-  m_Name: human
+  m_Name: healthy human
   m_TagString: human
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -48,7 +48,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f4313c089a3215447b4e6bc411e12c17, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 1
+  SpawnHumans: {fileID: 4121315548005982759}
+  speed: 0.1
   sr: {fileID: 8972417373795293821}
   unitcondtion: 0
   timer: 0.3
