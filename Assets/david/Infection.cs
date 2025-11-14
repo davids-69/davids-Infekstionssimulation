@@ -17,8 +17,8 @@ public class infection : MonoBehaviour
     SpriteRenderer human;
     public GameObject stats;
     private bool isAlive = true;
-    public float infectionDurantion = 5.0f;
-    public int infectionChance = 50;
+    public float infectionDurantion = 3f;
+    public int infectionChance = 1;
     private float changeDirectionInterval = 0f;
     private float DirectionX;
     private float DirectionY;
@@ -118,7 +118,7 @@ public class infection : MonoBehaviour
         {
             int diceroll = Random.Range(0, 101);
             {
-                if (diceroll < 50)
+                if (diceroll < 3)
 
                 {     // grön = infektion
                     unitcondtion = 1;
@@ -143,7 +143,7 @@ public class infection : MonoBehaviour
         int diceroll = Random.Range(0, 101);
 
         //IF någonting med diceroll
-        if (diceroll < 10)
+        if (diceroll < 3)
         {
             // blå = immun
             unitcondtion = 2;
@@ -186,14 +186,14 @@ public class infection : MonoBehaviour
     
     }
     void Immuneordead()
-    {
+    { /*
         int infect = Random.Range(0, 101);
         if (infect < 50)
         {
             stats.GetComponent<statisticsManager>().infectedCount--;
-            stats.GetComponent<statisticsManager>().immuneCount++;
+            stats.GetComponent<statisticsManager>().immuneCount++; 
 
-        }
+        }*/
     }
 }
 

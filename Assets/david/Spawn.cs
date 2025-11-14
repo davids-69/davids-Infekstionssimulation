@@ -4,7 +4,7 @@ public class Spawn : MonoBehaviour
 {
     public GameObject SpawnHumans;
     public GameObject stats;
-    public int intialpopulation = 200;
+    public int intialpopulation = 100;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
