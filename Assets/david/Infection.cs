@@ -143,7 +143,7 @@ public class infection : MonoBehaviour
         int diceroll = Random.Range(0, 101);
 
         //IF någonting med diceroll
-        if (diceroll < 3)
+        if (diceroll < 1)
         {
             // blå = immun
             unitcondtion = 2;
