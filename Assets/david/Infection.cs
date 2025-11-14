@@ -118,7 +118,7 @@ public class infection : MonoBehaviour
         {
             int diceroll = Random.Range(0, 101);
             {
-                if (diceroll < 3)
+                if (diceroll < 2f)
 
                 {     // grön = infektion
                     unitcondtion = 1;
